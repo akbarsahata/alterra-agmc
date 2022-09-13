@@ -1075,7 +1075,7 @@
 							}
 						],
 						"url": {
-							"raw": "{{binance_url}}/api/v3/account",
+							"raw": "{{binance_url}}/api/v3/account?timestamp={{timestamp}}&signature={{signature}}",
 							"host": [
 								"{{binance_url}}"
 							],
@@ -1083,6 +1083,16 @@
 								"api",
 								"v3",
 								"account"
+							],
+							"query": [
+								{
+									"key": "timestamp",
+									"value": "{{timestamp}}"
+								},
+								{
+									"key": "signature",
+									"value": "{{signature}}"
+								}
 							]
 						}
 					},
