@@ -5,6 +5,7 @@ import (
 	"os"
 
 	"github.com/akbarsahata/alterra-agmc/day-1/config"
+	"github.com/akbarsahata/alterra-agmc/day-1/routes"
 	"github.com/labstack/echo/v4"
 )
 
@@ -17,11 +18,11 @@ func init() {
 }
 
 func main() {
-	e := echo.New()
+	e := routes.New()
 
 	e.GET("/", func(c echo.Context) error {
-		return c.String(http.StatusOK, "test")
+		return c.String(http.StatusOK, "ok")
 	})
 
-	e.Start(":3001")
+	e.Logger.Fatal(e.Start(":3001"))
 }
