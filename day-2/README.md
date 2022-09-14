@@ -8,3 +8,7 @@ Port server dan `{{base_url}}` disesuaikan menjadi 3001 karena menggunakan [gin]
 
 Hasil dari pemanggilan setiap endpoint bisa dilihat di examples pada postman collection di folder `v1/books`.
 
+
+## Tugas 2 - Dynamic API
+
+_on progress..._
