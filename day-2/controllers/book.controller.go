@@ -18,9 +18,9 @@ type BookController interface {
 	DeleteOneByID(c echo.Context) error
 }
 
-type controller struct{}
+type bookController struct{}
 
-func (ctrl *controller) GetMany(c echo.Context) error {
+func (bc *bookController) GetMany(c echo.Context) error {
 	data := generator.GenerateBooks()
 
 	response := map[string]interface{}{
@@ -31,7 +31,7 @@ func (ctrl *controller) GetMany(c echo.Context) error {
 	return c.JSON(http.StatusOK, response)
 }
 
-func (ctrl *controller) GetOneByID(c echo.Context) error {
+func (bc *bookController) GetOneByID(c echo.Context) error {
 	id, _ := strconv.Atoi(c.Param("id"))
 
 	data := generator.GenerateBook()
@@ -45,12 +45,12 @@ func (ctrl *controller) GetOneByID(c echo.Context) error {
 
 	return c.JSON(http.StatusOK, response)
 }
-func (ctrl *controller) CreateOne(c echo.Context) error {
+func (bc *bookController) CreateOne(c echo.Context) error {
 	data := models.BookModel{}
 	c.Bind(&data)
 
 	if err := lib.Validate.Struct(&data); err != nil {
-		return c.String(http.StatusBadRequest, err.Error())
+		return echo.NewHTTPError(http.StatusBadRequest, err.Error())
 	}
 
 	data.ID = 1
@@ -62,18 +62,18 @@ func (ctrl *controller) CreateOne(c echo.Context) error {
 
 	return c.JSON(http.StatusOK, response)
 }
-func (ctrl *controller) UpdateOneByID(c echo.Context) error {
+func (bc *bookController) UpdateOneByID(c echo.Context) error {
 	id, _ := strconv.Atoi(c.Param("id"))
 
 	data := models.BookModel{}
 	c.Bind(&data)
 
 	if err := lib.Validate.Struct(&data); err != nil {
-		return c.String(http.StatusBadRequest, err.Error())
+		return echo.NewHTTPError(http.StatusBadRequest, err.Error())
 	}
 
 	if err := lib.Validate.Var(id, "gt=0"); err != nil {
-		return c.String(http.StatusBadRequest, err.Error())
+		return echo.NewHTTPError(http.StatusBadRequest, err.Error())
 	}
 
 	data.ID = id
@@ -85,18 +85,18 @@ func (ctrl *controller) UpdateOneByID(c echo.Context) error {
 
 	return c.JSON(http.StatusOK, response)
 }
-func (ctrl *controller) DeleteOneByID(c echo.Context) error {
+func (bc *bookController) DeleteOneByID(c echo.Context) error {
 	id, _ := strconv.Atoi(c.Param("id"))
 
 	if err := lib.Validate.Var(id, "gt=0"); err != nil {
-		return c.String(http.StatusBadRequest, err.Error())
+		return echo.NewHTTPError(http.StatusBadRequest, err.Error())
 	}
 
 	return c.String(http.StatusNoContent, "")
 }
 
 func NewBookController() BookController {
-	ctrl := new(controller)
+	ctrl := new(bookController)
 
 	return ctrl
 }

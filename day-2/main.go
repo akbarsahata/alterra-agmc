@@ -29,5 +29,7 @@ func main() {
 
 	routes.V1books(e)
 
+	routes.V1users(e)
+
 	e.Logger.Fatal(e.Start(":3001"))
 }

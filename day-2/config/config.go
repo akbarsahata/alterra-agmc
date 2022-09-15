@@ -4,6 +4,7 @@ import (
 	"fmt"
 	"os"
 
+	"github.com/akbarsahata/alterra-agmc/day-2/models"
 	"gorm.io/driver/mysql"
 	"gorm.io/gorm"
 )
@@ -37,7 +38,7 @@ func InitDB() {
 }
 
 func InitMigration() {
-	DB.AutoMigrate()
+	DB.AutoMigrate(&models.UserModel{})
 
 	fmt.Println("Migrations executed successfully")
 }

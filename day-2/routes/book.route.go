@@ -8,15 +8,15 @@ import (
 func V1books(e *echo.Echo) {
 	bookController := controllers.NewBookController()
 
-	bookRoutes := e.Group("/v1/books")
+	v1bookRoutes := e.Group("/v1/books")
 
-	bookRoutes.GET("", bookController.GetMany)
+	v1bookRoutes.GET("", bookController.GetMany)
 
-	bookRoutes.POST("", bookController.CreateOne)
+	v1bookRoutes.POST("", bookController.CreateOne)
 
-	bookRoutes.GET("/:id", bookController.GetOneByID)
+	v1bookRoutes.GET("/:id", bookController.GetOneByID)
 
-	bookRoutes.PUT("/:id", bookController.UpdateOneByID)
+	v1bookRoutes.PUT("/:id", bookController.UpdateOneByID)
 
-	bookRoutes.DELETE("/:id", bookController.DeleteOneByID)
+	v1bookRoutes.DELETE("/:id", bookController.DeleteOneByID)
 }
