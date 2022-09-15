@@ -11,4 +11,21 @@ Hasil dari pemanggilan setiap endpoint bisa dilihat di examples pada postman col
 
 ## Tugas 2 - Dynamic API
 
-_on progress..._
+### GET /v1/users
+
+get many users
+
+### POST /v1/users
+
+create one user
+
+#### expected request payload
+
+
+```
+{
+    "name": <string, required>,
+    "email": <string, required, valid email format>,
+    "password <string, required, min length 6 chars>
+}
+```
