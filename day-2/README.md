@@ -15,6 +15,10 @@ Hasil dari pemanggilan setiap endpoint bisa dilihat di examples pada postman col
 
 get many users
 
+### GET /v1/users/:id
+
+get one specific user by its ID
+
 ### POST /v1/users
 
 create one user
@@ -29,3 +33,18 @@ create one user
     "password <string, required, min length 6 chars>
 }
 ```
+
+### PUT /v1/users/:id
+
+update specific user by its ID
+
+```
+{
+    "name": <string, required>,
+    "email": <string, required, valid email format>,
+}
+```
+
+### DELETE /v1/users/:id
+
+delete (soft) specific user by its ID. will return 204 is successfully deleting record

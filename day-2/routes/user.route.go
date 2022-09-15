@@ -15,9 +15,9 @@ func V1users(e *echo.Echo) {
 
 	v1usersRoutes.POST("", userController.CreateOne)
 
-	v1usersRoutes.GET("/:id", func(c echo.Context) error { panic("implement me!") })
+	v1usersRoutes.GET("/:id", userController.GetOneByID)
 
-	v1usersRoutes.PUT("/:id", func(c echo.Context) error { panic("implement me!") })
+	v1usersRoutes.PUT("/:id", userController.UpdateOneByID)
 
-	v1usersRoutes.DELETE("/:id", func(c echo.Context) error { panic("implement me!") })
+	v1usersRoutes.DELETE("/:id", userController.DeleteOneByID)
 }
