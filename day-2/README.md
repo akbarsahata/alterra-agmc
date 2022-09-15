@@ -11,6 +11,8 @@ Hasil dari pemanggilan setiap endpoint bisa dilihat di examples pada postman col
 
 ## Tugas 2 - Dynamic API
 
+Response API ketika di-test di local disimpan sebagai example di tiap request pada postman collection.
+
 ### GET /v1/users
 
 get many users
