@@ -1,0 +1,780 @@
+{
+	"info": {
+		"_postman_id": "8056ae0f-22fc-486c-80d1-f56dbcb21891",
+		"name": "day-2",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "14471177"
+	},
+	"item": [
+		{
+			"name": "v1/books",
+			"item": [
+				{
+					"name": "{book id}",
+					"item": [
+						{
+							"name": "v1GetBookById",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{base_url}}/v1/books/:id",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"v1",
+										"books",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": "1"
+										}
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "v1GetBookById",
+									"originalRequest": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{base_url}}/v1/books/:id",
+											"host": [
+												"{{base_url}}"
+											],
+											"path": [
+												"v1",
+												"books",
+												":id"
+											],
+											"variable": [
+												{
+													"key": "id",
+													"value": "1"
+												}
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Length",
+											"value": "255"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=UTF-8"
+										},
+										{
+											"key": "Date",
+											"value": "Wed, 14 Sep 2022 16:47:41 GMT"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"code\": 200,\n    \"data\": {\n        \"id\": 1,\n        \"title\": \"Perferendis consequatur accusantium voluptatem sit aut.\",\n        \"author\": \"Princess Lelia Hauck\",\n        \"description\": \"Voluptatem consequatur accusantium aut perferendis sit. Accusantium aut consequatur perferendis sit voluptatem.\"\n    }\n}"
+								}
+							]
+						},
+						{
+							"name": "v1UpdateBookById",
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"title\": \"legenda timun mas\",\n    \"author\": \"n/a\",\n    \"description\": \"isn't this knockoff version of japanese momotaro?\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base_url}}/v1/books/:id",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"v1",
+										"books",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": "2"
+										}
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "v1UpdateBookById",
+									"originalRequest": {
+										"method": "PUT",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"title\": \"legenda timun mas\",\n    \"author\": \"n/a\",\n    \"description\": \"isn't this knockoff version of japanese momotaro?\"\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{base_url}}/v1/books/:id",
+											"host": [
+												"{{base_url}}"
+											],
+											"path": [
+												"v1",
+												"books",
+												":id"
+											],
+											"variable": [
+												{
+													"key": "id",
+													"value": "2"
+												}
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Length",
+											"value": "138"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=UTF-8"
+										},
+										{
+											"key": "Date",
+											"value": "Wed, 14 Sep 2022 17:16:03 GMT"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"code\": 200,\n    \"data\": {\n        \"id\": 2,\n        \"title\": \"legenda timun mas\",\n        \"author\": \"n/a\",\n        \"description\": \"isn't this knockoff version of japanese momotaro?\"\n    }\n}"
+								}
+							]
+						},
+						{
+							"name": "v1DeleteBookById",
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "{{base_url}}/v1/books/:id",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"v1",
+										"books",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": "1"
+										}
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "v1DeleteBookById",
+									"originalRequest": {
+										"method": "DELETE",
+										"header": [],
+										"url": {
+											"raw": "{{base_url}}/v1/books/:id",
+											"host": [
+												"{{base_url}}"
+											],
+											"path": [
+												"v1",
+												"books",
+												":id"
+											],
+											"variable": [
+												{
+													"key": "id",
+													"value": "1"
+												}
+											]
+										}
+									},
+									"status": "No Content",
+									"code": 204,
+									"_postman_previewlanguage": "plain",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "text/plain; charset=UTF-8"
+										},
+										{
+											"key": "Date",
+											"value": "Wed, 14 Sep 2022 17:18:02 GMT"
+										}
+									],
+									"cookie": [],
+									"body": null
+								}
+							]
+						}
+					]
+				},
+				{
+					"name": "v1GetBooks",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/v1/books",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"v1",
+								"books"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "v1GetBooks",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{base_url}}/v1/books",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"v1",
+										"books"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Length",
+									"value": "1107"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=UTF-8"
+								},
+								{
+									"key": "Date",
+									"value": "Wed, 14 Sep 2022 16:42:37 GMT"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"code\": 200,\n    \"data\": [\n        {\n            \"id\": 2,\n            \"title\": \"Voluptatem consequatur accusantium aut sit perferendis.\",\n            \"author\": \"Lady Shawna Bruen\",\n            \"description\": \"Sit aut consequatur voluptatem accusantium perferendis. Accusantium perferendis consequatur aut voluptatem sit. Aut consequatur voluptatem accusantium perferendis sit. Consequatur aut perferendis sit voluptatem accusantium. Accusantium sit consequatur perferendis voluptatem aut. Accusantium sit voluptatem perferendis consequatur aut.\"\n        },\n        {\n            \"id\": 3,\n            \"title\": \"Sit aut voluptatem consequatur accusantium perferendis.\",\n            \"author\": \"Queen Janae Bode\",\n            \"description\": \"Aut consequatur voluptatem sit perferendis accusantium. Aut sit consequatur accusantium voluptatem perferendis. Sit consequatur voluptatem accusantium perferendis aut. Aut sit consequatur voluptatem perferendis accusantium. Sit accusantium aut consequatur perferendis voluptatem.\"\n        },\n        {\n            \"id\": 2,\n            \"title\": \"Voluptatem consequatur perferendis sit accusantium aut.\",\n            \"author\": \"Ms. Carli Bruen\",\n            \"description\": \"Consequatur voluptatem sit aut perferendis accusantium. Consequatur accusantium sit voluptatem aut perferendis.\"\n        }\n    ]\n}"
+						}
+					]
+				},
+				{
+					"name": "v1CreateBook",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"title\": \"legenda timun mas\",\n    \"author\": \"n/a\",\n    \"description\": \"isn't this knockoff version of japanese momotaro?\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/v1/books",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"v1",
+								"books"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "v1CreateBook",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"title\": \"legenda timun mas\",\n    \"author\": \"n/a\",\n    \"description\": \"isn't this knockoff version of japanese momotaro?\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base_url}}/v1/books",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"v1",
+										"books"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Length",
+									"value": "138"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=UTF-8"
+								},
+								{
+									"key": "Date",
+									"value": "Wed, 14 Sep 2022 17:11:19 GMT"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"code\": 200,\n    \"data\": {\n        \"id\": 1,\n        \"title\": \"legenda timun mas\",\n        \"author\": \"n/a\",\n        \"description\": \"isn't this knockoff version of japanese momotaro?\"\n    }\n}"
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "v1/users",
+			"item": [
+				{
+					"name": "{user id}",
+					"item": [
+						{
+							"name": "v1GetUserById",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{base_url}}/v1/users/:id",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"v1",
+										"users",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": "2"
+										}
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "v1GetUserById",
+									"originalRequest": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{base_url}}/v1/users/:id",
+											"host": [
+												"{{base_url}}"
+											],
+											"path": [
+												"v1",
+												"users",
+												":id"
+											],
+											"variable": [
+												{
+													"key": "id",
+													"value": "2"
+												}
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Length",
+											"value": "75"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=UTF-8"
+										},
+										{
+											"key": "Date",
+											"value": "Thu, 15 Sep 2022 13:36:43 GMT"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"code\": 200,\n    \"data\": {\n        \"id\": 2,\n        \"name\": \"alterra2\",\n        \"email\": \"test2@alterra.com\"\n    }\n}"
+								}
+							]
+						},
+						{
+							"name": "v1UpdateUserById",
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"name\": \"hacktiv8\",\n    \"email\": \"test@hacktiv8.com\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base_url}}/v1/users/:id",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"v1",
+										"users",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": "1"
+										}
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "v1UpdateUserById",
+									"originalRequest": {
+										"method": "PUT",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"name\": \"hacktiv8\",\n    \"email\": \"test@hacktiv8.com\"\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{base_url}}/v1/users/:id",
+											"host": [
+												"{{base_url}}"
+											],
+											"path": [
+												"v1",
+												"users",
+												":id"
+											],
+											"variable": [
+												{
+													"key": "id",
+													"value": "1"
+												}
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Length",
+											"value": "75"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=UTF-8"
+										},
+										{
+											"key": "Date",
+											"value": "Thu, 15 Sep 2022 13:37:04 GMT"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"code\": 200,\n    \"data\": {\n        \"id\": 1,\n        \"name\": \"hacktiv8\",\n        \"email\": \"test@hacktiv8.com\"\n    }\n}"
+								}
+							]
+						},
+						{
+							"name": "v1DeleteUserById",
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "{{base_url}}/v1/users/:id",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"v1",
+										"users",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": "3"
+										}
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "v1DeleteUserById",
+									"originalRequest": {
+										"method": "DELETE",
+										"header": [],
+										"url": {
+											"raw": "{{base_url}}/v1/users/:id",
+											"host": [
+												"{{base_url}}"
+											],
+											"path": [
+												"v1",
+												"users",
+												":id"
+											],
+											"variable": [
+												{
+													"key": "id",
+													"value": "3"
+												}
+											]
+										}
+									},
+									"status": "No Content",
+									"code": 204,
+									"_postman_previewlanguage": "plain",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "text/plain; charset=UTF-8"
+										},
+										{
+											"key": "Date",
+											"value": "Thu, 15 Sep 2022 13:35:02 GMT"
+										}
+									],
+									"cookie": [],
+									"body": null
+								}
+							]
+						}
+					]
+				},
+				{
+					"name": "v1GetUsers",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "email",
+									"value": "tono@example.com",
+									"type": "text",
+									"disabled": true
+								}
+							]
+						},
+						"url": {
+							"raw": "{{base_url}}/v1/users",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"v1",
+								"users"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "v1GetUsers",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "email",
+											"value": "tono@example.com",
+											"type": "text",
+											"disabled": true
+										}
+									]
+								},
+								"url": {
+									"raw": "{{base_url}}/v1/users",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"v1",
+										"users"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Length",
+									"value": "185"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=UTF-8"
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 15 Sep 2022 00:57:24 GMT"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"code\": 200,\n    \"data\": [\n        {\n            \"id\": 1,\n            \"name\": \"alterra\",\n            \"email\": \"test@alterra.com\"\n        },\n        {\n            \"id\": 2,\n            \"name\": \"alterra2\",\n            \"email\": \"test2@alterra.com\"\n        },\n        {\n            \"id\": 3,\n            \"name\": \"alterra3\",\n            \"email\": \"test3@alterra.com\"\n        }\n    ]\n}"
+						}
+					]
+				},
+				{
+					"name": "v1CreateUser",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"alterra3\",\r\n    \"email\": \"test3@alterra.com\",\r\n    \"password\": \"1234\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/v1/users",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"v1",
+								"users"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "v1CreateUser",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"name\": \"alterra3\",\r\n    \"email\": \"test3@alterra.com\",\r\n    \"password\": \"1234\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base_url}}/v1/users",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"v1",
+										"users"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Length",
+									"value": "62"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=UTF-8"
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 15 Sep 2022 00:54:16 GMT"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"code\": 200,\n    \"data\": {\n        \"id\": 3,\n        \"name\": \"alterra3\",\n        \"email\": \"1234\"\n    }\n}"
+						}
+					]
+				}
+			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "base_url",
+			"value": "http://localhost:3000",
+			"type": "string"
+		}
+	]
+}
