@@ -38,7 +38,7 @@ func InitDB() {
 }
 
 func InitMigration() {
-	DB.AutoMigrate(&models.UserModel{})
+	DB.AutoMigrate(&models.User{})
 
 	fmt.Println("Migrations executed successfully")
 }
