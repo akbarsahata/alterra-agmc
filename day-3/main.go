@@ -3,33 +3,47 @@ package main
 import (
 	"net/http"
 	"os"
+	"sync"
 
 	"github.com/akbarsahata/alterra-agmc/day-3/config"
 	"github.com/akbarsahata/alterra-agmc/day-3/lib"
 	"github.com/akbarsahata/alterra-agmc/day-3/routes"
 	"github.com/labstack/echo/v4"
+	"github.com/labstack/echo/v4/middleware"
 )
 
+var once sync.Once
+
 func init() {
-	lib.InitValidator()
+	once.Do(func() {
+		config.InitEnv()
+		config.InitDB()
 
-	config.InitDB()
+		lib.InitValidator()
 
-	if os.Getenv("ENV") != "production" {
-		config.InitMigration()
-	}
+		if os.Getenv("ENV") != "production" {
+			config.InitMigration()
+		}
+	})
 }
 
 func main() {
 	e := echo.New()
+	db := config.GetDB()
+
+	e.Use(middleware.CORS())
+	e.Use(middleware.Logger())
+	e.Use(middleware.Recover())
 
 	e.GET("/", func(c echo.Context) error {
 		return c.String(http.StatusOK, "ok")
 	})
 
+	routes.Auths(e, db)
+
 	routes.V1books(e)
 
-	routes.V1users(e)
+	routes.V1users(e, db)
 
 	e.Logger.Fatal(e.Start(":3001"))
 }

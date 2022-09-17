@@ -1,13 +1,17 @@
 package controllers
 
 import (
+	"errors"
+	"fmt"
 	"net/http"
 	"strconv"
 
+	"github.com/akbarsahata/alterra-agmc/day-3/models"
 	"github.com/akbarsahata/alterra-agmc/day-3/models/dao"
 	"github.com/akbarsahata/alterra-agmc/day-3/models/dto"
 	"github.com/go-playground/validator/v10"
 	"github.com/labstack/echo/v4"
+	"gorm.io/gorm"
 )
 
 type UserController interface {
@@ -51,7 +55,7 @@ func (uc *userController) GetOneByID(c echo.Context) error {
 		return echo.NewHTTPError(http.StatusBadRequest, err.Error())
 	}
 
-	data, err := uc.userDAO.GetOne(uint(id))
+	data, err := uc.userDAO.GetOneByID(uint(id))
 	if err != nil {
 		return echo.NewHTTPError(http.StatusInternalServerError, err.Error())
 	}
@@ -71,6 +75,13 @@ func (uc *userController) CreateOne(c echo.Context) error {
 
 	if err := uc.validate.Struct(&data); err != nil {
 		return echo.NewHTTPError(http.StatusBadRequest, err.Error())
+	}
+
+	existingUser, err := uc.userDAO.GetOne(&models.User{Email: data.Email})
+	if err != nil && !errors.Is(err, gorm.ErrRecordNotFound) {
+		return echo.NewHTTPError(http.StatusInternalServerError, err.Error())
+	} else if existingUser != nil {
+		return echo.NewHTTPError(http.StatusBadRequest, fmt.Sprintf("%s already been used", data.Email))
 	}
 
 	if user, err := uc.userDAO.CreateOne(data); err != nil {

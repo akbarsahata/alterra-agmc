@@ -9,7 +9,8 @@ import (
 
 type UserDAO interface {
 	GetMany() ([]models.User, error)
-	GetOne(userID uint) (*models.User, error)
+	GetOne(params *models.User) (*models.User, error)
+	GetOneByID(userID uint) (*models.User, error)
 	CreateOne(data dto.CreateUserBodyDTO) (*models.User, error)
 	UpdateOne(userID uint, data dto.UpdateUserBodyDTO) (*models.User, error)
 	DeleteOne(userID uint) error
@@ -33,7 +34,17 @@ func (dao *userDAO) GetMany() ([]models.User, error) {
 	return users, nil
 }
 
-func (dao *userDAO) GetOne(userID uint) (*models.User, error) {
+func (dao *userDAO) GetOne(params *models.User) (*models.User, error) {
+	user := new(models.User)
+
+	if err := dao.db.Where(params).First(user).Error; err != nil {
+		return nil, err
+	}
+
+	return user, nil
+}
+
+func (dao *userDAO) GetOneByID(userID uint) (*models.User, error) {
 	user := new(models.User)
 
 	if err := dao.db.Where("id = ?", userID).First(user).Error; err != nil {
