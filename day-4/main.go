@@ -8,6 +8,7 @@ import (
 	"github.com/akbarsahata/alterra-agmc/day-4/config"
 	"github.com/akbarsahata/alterra-agmc/day-4/lib"
 	"github.com/akbarsahata/alterra-agmc/day-4/routes"
+	"github.com/joho/godotenv"
 	"github.com/labstack/echo/v4"
 	"github.com/labstack/echo/v4/middleware"
 )
@@ -16,6 +17,8 @@ var once sync.Once
 
 func init() {
 	once.Do(func() {
+		godotenv.Load()
+
 		config.InitEnv()
 		config.InitDB()
 
